@@ -6,8 +6,6 @@ public class Player {
 	private final String P1_IMG_PATH  = "/model/portal_orange.png";
 	private final String IMG_STYLE = "-fx-background-color:transparent;";
 	private final String P2_IMG_PATH  = "/model/portal_yellow.png";
-	private final int HEIGHT = 40;
-	private final int WIDTH = 40;
 	private ImageView p1Image;
 	private ImageView p2Image;
 	private ImageView playerImage;
@@ -37,17 +35,18 @@ public class Player {
 			playerImage.setLayoutY(YPOSSTART);
 			this.xPos = 30;
 			this.yPos = YPOSSTART;
+			this.setRow(0);
 			
 		}else {
 			playerImage = new ImageView(P2_IMG_PATH);
 			playerImage.setFitWidth(60);
-			playerImage.setLayoutX(550);
+			playerImage.setLayoutX(720);
 			playerImage.setLayoutY(YPOSSTART);
-			this.xPos = 550;
+			this.xPos = 670;
 			this.yPos = YPOSSTART;
-			
+			this.setRow(0);
 		}
-		this.setRow(0);
+		
 //		p1Image = new ImageView(P1_IMG_PATH);
 //		p1Image.setFitHeight(HEIGHT);
 //		p1Image.setFitWidth(WIDTH);
@@ -85,29 +84,20 @@ public class Player {
 
 
 	public void setRow(int row) {
-//		this.row = Math.max(row,0);
-//		this.row = Math.min(row,5);
+		this.row = Math.max(row,0);
+		this.row = Math.min(this.row,5);
 		
-		this.row = row;
+		
 		System.out.println(this.getRow());
 	}
-	public void move() {
-		this.setyPos(YPOSSTART+ (this.getRow()*75));
-		this.playerImage.setLayoutY(this.getyPos());
-		System.out.println(this.getyPos()+"  "+ this.getRow());
-	}
-
-
-
-
-
-
+//	public void move() {
+//		this.setyPos(YPOSSTART+ (this.getRow()*75));
+//		this.playerImage.setLayoutY(this.getyPos());
+//		//System.out.println(this.getyPos()+"  "+ this.getRow());
+//	}
 	public int getxPos() {
 		return xPos;
 	}
-
-
-
 	public void setxPos(int xPos) {
 		this.xPos = xPos;
 	}
